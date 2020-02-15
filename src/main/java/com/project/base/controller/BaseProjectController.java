@@ -32,17 +32,16 @@ public class BaseProjectController {
         String welcomePage = "Welcome page";
         model.addAttribute("welcomePage",welcomePage);
 
+        SimpleRecord newSimpleRecord = new SimpleRecord();
+        newSimpleRecord.setRecordName("someName inserted");
+        newSimpleRecord.setShortName("some shortName inserted");
+        simpleRecordService.save(newSimpleRecord);
+
         List<SimpleRecord> simpleRecordList = simpleRecordService.findAll();
         model.addAttribute("simpleRecordList", simpleRecordList);
 
         SimpleRecord simpleRecord = simpleRecordService.findById(1);
         model.addAttribute("simpleRecord",simpleRecord);
-
-        SimpleRecord newSimpleRecord = new SimpleRecord();
-
-        newSimpleRecord.setRecordName("someName inserted");
-        newSimpleRecord.setShortName("some shortName inserted");
-        simpleRecordService.save(newSimpleRecord);
 
         return "welcome";
     }
