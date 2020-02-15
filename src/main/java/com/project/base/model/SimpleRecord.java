@@ -12,9 +12,9 @@ public class SimpleRecord {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(name = "recordName")
+    @Column(name = "record_name")
     String recordName;
 
-    @Column(name = "shortName")
+    @Column(name = "short_name")
     String shortName;
 }

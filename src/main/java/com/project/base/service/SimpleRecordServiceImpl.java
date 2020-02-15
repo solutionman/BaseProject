@@ -20,12 +20,11 @@ public class SimpleRecordServiceImpl implements SimpleRecordService {
 
     @Override
     public SimpleRecord findById(long id) {
-        String debug = "debug";
         return simpleRecordDao.findById(id);
     }
 
     @Override
     public void save(SimpleRecord simpleRecord) {
-
+        simpleRecordDao.save(simpleRecord);
     }
 }
