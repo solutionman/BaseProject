@@ -22,6 +22,11 @@ public class BaseProjectController {
     @Autowired
     private UserService userService;
 
+    @RequestMapping("/login")
+    String login(){
+        return "login";
+    }
+
     @Value("injected message.")
     String message;
 
