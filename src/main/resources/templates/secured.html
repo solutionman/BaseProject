@@ -2,23 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <title>Welcome page</title>
+    <title>Index page</title>
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
 </head>
 <body>
-
-    <h1 th:text="${welcomePage}"></h1>
-    <p><span th:text="${simpleRecord}"></span></p>
-    <p><span th:text="${simpleRecord.recordName}"></span></p>
-
-    <ol>
-        <li th:each="rec : ${simpleRecordList}" th:text="${rec}"></li>
-    </ol>
-
+    <h1>Index page</h1>
+    <p>This is secured page</p>
+    <p><a href="welcome">To welcome page</a></p>
     <p><a href="/base">To index page</a></p>
-    <p><a href="secured">To secured page</a></p>
-
     <script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
 </body>
 </html>
