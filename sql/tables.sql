@@ -1,14 +1,14 @@
 
-CREATE TABLE simpleRecords
+CREATE TABLE simplerecords
 (
     id BIGSERIAL not null constraint simplerecords_pkey primary key,
-    recordName varchar(255),
-    shortName varchar(255)
+    record_name varchar(255),
+    short_name varchar(255)
 );
 
-ALTER TABLE simpleRecords OWNER to dima;
+ALTER TABLE simplerecords OWNER to dima;
 
-SELECT * FROM simpleRecords;
-INSERT INTO simpleRecords (recordName, shortName) VALUES ('Long record name','short record name');
+SELECT * FROM simplerecords;
+INSERT INTO simplerecords (record_name, short_name) VALUES ('Long record name','short record name');
 
 
