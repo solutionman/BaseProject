@@ -1,7 +1,9 @@
 package com.project.base.controller;
 
 import com.project.base.model.SimpleRecord;
+import com.project.base.model.User;
 import com.project.base.service.SimpleRecordService;
+import com.project.base.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,9 @@ public class BaseProjectController {
     @Autowired
     private SimpleRecordService simpleRecordService;
 
+    @Autowired
+    private UserService userService;
+
     @Value("injected message.")
     String message;
 
@@ -24,6 +29,14 @@ public class BaseProjectController {
     String index(Model model){
 //        String message = "Index page";
         model.addAttribute("message",message);
+
+//        User user = userService.findByUsername("user");
+
+        User newUser = new User();
+        newUser.setPassword("123");
+        newUser.setUsername("user");
+//        userService.save(newUser);
+
         return "index";
     }
 

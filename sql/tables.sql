@@ -42,5 +42,14 @@ create table user_roles
 );
 alter table user_roles owner to dima;
 
+INSERT INTO users VALUES (1,'user','$2a$11$vwr8793lnCpvfD5T6/K16e0PXvTXGa0xE37Uez7WQJWoT4Wg5FN6K'); --12345678
+
+INSERT INTO roles VALUES ( 1, 'ROLE_USER' );
+INSERT INTO roles VALUES ( 2, 'ROLE_ADMIN' );
+INSERT INTO roles VALUES ( 3, 'ROLE_GUEST' );
+INSERT INTO roles VALUES ( 4, 'ROLE_PERFORMER' );
+
+INSERT INTO user_roles values (1,1);
+
 
 

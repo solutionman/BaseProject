@@ -38,6 +38,8 @@ public class UserServiceImpl implements UserService {
             case "Operator":
                 roles.add(roleDao.getOne(2L));
                 break;
+            default: roles.add(roleDao.getOne(3L));
+                break;
         }
 
         user.setRoles(roles);
