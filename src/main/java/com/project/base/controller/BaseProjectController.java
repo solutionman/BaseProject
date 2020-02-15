@@ -32,10 +32,15 @@ public class BaseProjectController {
 
 //        User user = userService.findByUsername("user");
 
-        User newUser = new User();
-        newUser.setPassword("123");
-        newUser.setUsername("user");
+//        User newUser = new User();
+//        newUser.setPassword("123");
+//        newUser.setUsername("user");
 //        userService.save(newUser);
+
+//        User anotherUser = new User();
+//        anotherUser.setUsername("Operator");
+//        anotherUser.setPassword("12345678");
+//        userService.save(anotherUser);
 
         return "index";
     }
