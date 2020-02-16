@@ -43,6 +43,19 @@ public class BaseProjectController {
         return "secured";
     }
 
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+     String registration(){
+        return "registration";
+     }
+
+     @RequestMapping(value = "/registration", method = RequestMethod.POST)
+     String createUser(){
+
+        String debug = "debug";
+
+        return "secured";
+     }
+
     @Value("injected message.")
     String message;
 

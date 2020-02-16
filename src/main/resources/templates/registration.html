@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Admin page</title>
+<!--    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>-->
+<!--    <link rel="stylesheet" th:href="@{/css/main.css}"/>-->
+</head>
+<body>
+    <h1>Create new user</h1>
+    <form method="post" action="registration">
+        <label>
+            <input name="username" />
+        </label>
+        <label>
+            <input name="password" />
+        </label>
+        <label>
+            <input name="usertype" />
+        </label>
+        <div class="alert-success">
+            <button type="submit" class="alert-success" style="width: 100px;height: 20px">Create User</button>
+        </div>
+    </form>
+    <p><a href="welcome">To welcome page</a></p>
+    <p><a href="/base">To index page</a></p>
+<!--    <script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>-->
+</body>
+</html>
+
