@@ -36,6 +36,7 @@ public class BaseProjectController {
     String getLogin(Model model, String error, String logout){
         SecurityContext context = SecurityContextHolder.getContext();
         Authentication authentication = context.getAuthentication();
+        String currentUser = authentication.getName();
 
         String debug = "debug";
         if (error != null) {
@@ -90,6 +91,12 @@ public class BaseProjectController {
 //        anotherUser.setUsername("Operator");
 //        anotherUser.setPassword("12345678");
 //        userService.save(anotherUser);
+
+//        User guest = new User();
+//        guest.setUsername("superAdmin");
+//        guest.setPassword("12345678");
+//        guest.setUsertype("admin");
+//        userService.save(guest);
 
         return "index";
     }
