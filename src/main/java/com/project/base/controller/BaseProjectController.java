@@ -6,6 +6,8 @@ import com.project.base.service.SimpleRecordService;
 import com.project.base.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,11 +31,20 @@ public class BaseProjectController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    String getLogin(Model model){
+    String getLogin(Model model, String error, String logout){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User currentUser = userService.findByUsername( authentication.getName() );
 
         String debug = "debug";
+        if (error != null) {
+            model.addAttribute("error", "Username or password is incorrect.");
+        }
 
-        return "secured";
+        if (logout != null) {
+            model.addAttribute("message", "Logged out successfully.");
+        }
+
+        return "login";
     }
 
     @RequestMapping(value = "/secured", method = RequestMethod.GET)
