@@ -17,7 +17,8 @@ create table users
     id           serial not null,
     username     varchar(255),
     password     varchar(255),
-    nickname     varchar(200)
+    nickname     varchar(255),
+    usertype     varchar(255)
 );
 alter table users owner to dima;
 
@@ -42,7 +43,7 @@ create table user_roles
 );
 alter table user_roles owner to dima;
 
-INSERT INTO users VALUES (1,'user','$2a$11$vwr8793lnCpvfD5T6/K16e0PXvTXGa0xE37Uez7WQJWoT4Wg5FN6K'); --12345678
+INSERT INTO users VALUES (1,'Admin','$2a$11$vwr8793lnCpvfD5T6/K16e0PXvTXGa0xE37Uez7WQJWoT4Wg5FN6K','admin'); --12345678
 
 INSERT INTO roles VALUES ( 1, 'ROLE_USER' );
 INSERT INTO roles VALUES ( 2, 'ROLE_ADMIN' );
