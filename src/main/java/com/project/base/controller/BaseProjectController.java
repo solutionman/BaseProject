@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -22,9 +23,24 @@ public class BaseProjectController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     String login(){
         return "login";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    String getLogin(Model model){
+
+        String debug = "debug";
+
+        return "secured";
+    }
+
+    @RequestMapping(value = "/secured", method = RequestMethod.GET)
+    String secured(Model model){
+        String debug = "debug";
+
+        return "secured";
     }
 
     @Value("injected message.")
