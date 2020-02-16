@@ -1,5 +1,6 @@
 package com.project.base.config;
 
+import com.project.base.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -12,8 +13,22 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder(){
-        return new BCryptPasswordEncoder();
+    public BCryptPasswordEncoder passwordEncoder() {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        return bCryptPasswordEncoder;
+    }
+
+
+    @Autowired
+    private UserDetailsServiceImpl userDetailsService;
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+
+        // Setting Service to find User in the database.
+        // And Setting PassswordEncoder
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+
     }
 
 //    @Autowired
@@ -24,20 +39,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests().antMatchers("/registration").hasRole("ADMIN")
-                .and()
-                .authorizeRequests().antMatchers("/secured").hasAnyRole("ADMIN", "USER")
-                .and()
-                .authorizeRequests().antMatchers("/index","/welcome" ).permitAll()
-                .and()
+        http.csrf().disable();
+        http.authorizeRequests().antMatchers("/","/index","/welcome").permitAll();
+        http.authorizeRequests().antMatchers("/registration").hasRole("ADMIN");
+        http.authorizeRequests().antMatchers("/secured").hasAnyRole("USER","ADMIN");
+        http.authorizeRequests().and()
                 .formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password").permitAll()
                 .loginProcessingUrl("/doLogin")
                 .successForwardUrl("/postLogin")
                 .failureUrl("/loginFailed")
                 .and()
-                .logout().logoutUrl("/doLogout").logoutSuccessUrl("/logout").permitAll()
-                .and()
-                .csrf().disable();
+                .logout().logoutUrl("/doLogout").logoutSuccessUrl("/logout").permitAll();
     }
 }
