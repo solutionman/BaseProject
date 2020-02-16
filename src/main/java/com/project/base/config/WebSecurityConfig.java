@@ -1,6 +1,8 @@
 package com.project.base.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -13,6 +15,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public BCryptPasswordEncoder bCryptPasswordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
+//    @Autowired
+//    public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.inMemoryAuthentication().withUser("user").password("12345678").roles("USER");
+//        auth.inMemoryAuthentication().withUser("admin").password("12345678").roles("ADMIN");
+//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -28,8 +36,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .successForwardUrl("/postLogin")
                 .failureUrl("/loginFailed")
                 .and()
-                .logout().logoutUrl("/doLogout").logoutSuccessUrl("/logout").permitAll()
-                .and()
-                .csrf().disable();
+                .logout().logoutUrl("/doLogout").logoutSuccessUrl("/logout").permitAll();
     }
 }
