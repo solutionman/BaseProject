@@ -12,7 +12,7 @@ public interface UserService {
 
     List<User> findAll();
 
-    List<User> findUsersByUserType(String userType);
+    List<User> findUsersByUsertype(String usertype);
 
     User findById(long id);
 

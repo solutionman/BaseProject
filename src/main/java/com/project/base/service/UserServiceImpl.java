@@ -57,12 +57,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findAll() {
-        return null;
+        return userDao.findAll();
     }
 
     @Override
-    public List<User> findUsersByUserType(String userType) {
-        return null;
+    public List<User> findUsersByUsertype(String usertype) {
+        return userDao.findUsersByUsertype(usertype);
     }
 
     @Override

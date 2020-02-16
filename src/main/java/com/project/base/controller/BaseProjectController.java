@@ -78,6 +78,8 @@ public class BaseProjectController {
         model.addAttribute("message",message);
 
 //        User user = userService.findByUsername("user");
+//        List<User> userList = userService.findAll();
+//        List<User> users = userService.findUsersByUsertype("admin");
 
 //        User newUser = new User();
 //        newUser.setPassword("123");
