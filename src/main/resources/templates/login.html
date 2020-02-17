@@ -1,27 +1,23 @@
-<!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <meta charset="utf-8">
-    <title>Index page</title>
-<!--    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>-->
-<!--    <link rel="stylesheet" th:href="@{/css/main.css}"/>-->
+    <title>Spring Security Example </title>
 </head>
 <body>
-    <h1>Login page</h1>
-    <form method="post" action="login">
-        <label>
-            <input name="username" />
-        </label>
-        <label>
-            <input name="password" />
-        </label>
-        <div class="alert-success">
-            <button type="submit" class="alert-success" style="width: 100px;height: 20px">Login</button>
-        </div>
-    </form>
-    <p><a href="welcome">To welcome page</a></p>
-    <p><a href="/base">To index page</a></p>
-<!--    <script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>-->
+<div th:if="${param.error}">
+    Invalid username and password.
+</div>
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>
+<form th:action="@{/login}" method="post">
+    <div><label> User Name : <input type="text" name="username" value="admin"/> </label></div>
+    <div><label> Password: <input type="password" name="password" value="12345678"/> </label></div>
+    <div><input type="submit" value="Sign In"/></div>
+</form>
+<div><a th:href="@{/}">Back to unsecured page</a></div>
+<div><label> User Name : admin </label></div>
+<div><label> Password: 12345678 </label></div>
 </body>
 </html>
-

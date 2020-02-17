@@ -29,6 +29,9 @@ public class BaseProjectController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     String login(){
+        SecurityContext context = SecurityContextHolder.getContext();
+        Authentication authentication = context.getAuthentication();
+        String currentUser = authentication.getName();
         return "login";
     }
 
