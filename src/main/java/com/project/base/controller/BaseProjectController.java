@@ -12,9 +12,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -65,13 +63,14 @@ public class BaseProjectController {
         return "secured";
     }
 
-    @RequestMapping(value = "/registration", method = RequestMethod.GET)
-     String registration(){
+    @GetMapping("/registration")
+     String registration(Model model){
+        model.addAttribute("user", new User());
         return "registration";
      }
 
-     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-     String createUser(){
+     @PostMapping("/registration")
+     String createUser(@ModelAttribute User user){
 
         String debug = "debug";
 

@@ -12,15 +12,15 @@
         <input type="submit" value="Sign Out"/>
     </form>
     <h1>Create new user</h1>
-    <form method="post" action="registration">
+    <form method="post" action="#" th:action="@{/registration}" th:object="${user}">
         <label> username:
-            <input name="username" />
+            <input type="text" th:field="*{username}" name="username" />
         </label>
         <label> password:
-            <input name="password" />
+            <input type="text" th:field="*{password}" name="password" />
         </label>
         <label> usertype:
-            <input name="usertype" />
+            <input type="text" th:field="*{usertype}" name="usertype" />
         </label>
         <br><br>
         <div class="alert-success">
