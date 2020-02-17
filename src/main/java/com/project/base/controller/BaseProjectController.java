@@ -140,11 +140,11 @@ public class BaseProjectController {
     @PostMapping("/editUser")
     String doEditUser(@ModelAttribute User user){
         User userToEdit = userService.findById(user.getId());
-        if( null != user.getUsername() ){ userToEdit.setUsername(user.getUsername()); }
-        User test = userService.findByUsername( user.getUsername() );
-        if( (null != user.getUsertype() ) && (null == userService.findByUsername(user.getUsername())) ){
-            userToEdit.setUsertype(user.getUsertype());
+//        User test = userService.findByUsername( user.getUsername() );
+        if( null != user.getUsername() && ( null == userService.findByUsername( user.getUsername()) ) ){
+            userToEdit.setUsername(user.getUsername());
         }
+        if( null != user.getUsertype() ){ userToEdit.setUsertype(user.getUsertype()); }
 
         userService.save( userToEdit );
 
