@@ -8,5 +8,5 @@ public interface SimpleRecordService {
     List<SimpleRecord> findAll();
     SimpleRecord findById(long id);
     void save(SimpleRecord simpleRecord);
-    SimpleRecord deleteById(long id);
+    void deleteById(long id);
 }

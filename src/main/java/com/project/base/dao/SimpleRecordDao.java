@@ -8,5 +8,5 @@ import java.util.List;
 public interface SimpleRecordDao extends JpaRepository<SimpleRecord, Long> {
     List<SimpleRecord> findAll();
     SimpleRecord findById(long id);
-    SimpleRecord deleteById(long id);
+    void deleteById(long id);
 }

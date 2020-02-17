@@ -29,7 +29,7 @@ public class SimpleRecordServiceImpl implements SimpleRecordService {
     }
 
     @Override
-    public SimpleRecord deleteById(long id) {
-        return simpleRecordDao.deleteById(id);
+    public void deleteById(long id) {
+        simpleRecordDao.deleteById(id);
     }
 }
