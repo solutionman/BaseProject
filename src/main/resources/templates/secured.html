@@ -7,12 +7,13 @@
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
 </head>
 <body>
-    <h1 style="color: red">Secured page</h1>
-    <p>This is secured page</p>
     <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Sign Out"/>
     </form>
+    <h1 style="color: red">Secured page</h1>
+    <p>This is secured page</p>
+
     <p ><a href="registration" style="color: red">Create new user</a></p>
     <p><a href="welcome">To welcome page</a></p>
     <p><a href="/base">To index page</a></p>

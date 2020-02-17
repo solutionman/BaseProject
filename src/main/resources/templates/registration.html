@@ -7,6 +7,10 @@
 <!--    <link rel="stylesheet" th:href="@{/css/main.css}"/>-->
 </head>
 <body>
+    <h1 th:inline="text">[[${#httpServletRequest.remoteUser}]]</h1>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
     <h1>Create new user</h1>
     <form method="post" action="registration">
         <label>
@@ -23,9 +27,6 @@
         </div>
     </form>
 
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out"/>
-    </form>
     <p><a href="welcome">To welcome page</a></p>
     <p><a href="/base">To index page</a></p>
 <!--    <script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>-->
