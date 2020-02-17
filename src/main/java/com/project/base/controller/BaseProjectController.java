@@ -74,9 +74,9 @@ public class BaseProjectController {
 
         if( null == userService.findByUsername(user.getUsername())){
             userService.save(user);
+            return "/secured";
         }
-
-        return "secured";
+        return "/registration";
      }
 
     @Value("injected message.")
