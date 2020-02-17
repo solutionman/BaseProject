@@ -7,6 +7,7 @@
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
 </head>
 <body>
+    <h1 th:inline="text">[[${#httpServletRequest.remoteUser}]]</h1>
     <h1>Index page</h1>
     <span th:text="'This is ' + ${message}"></span>
     <p><a href="welcome">To welcome page</a></p>

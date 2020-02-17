@@ -91,22 +91,6 @@ public class BaseProjectController {
         List<User> userList = userService.findAll();
         List<User> users = userService.findUsersByUsertype("admin");
 
-//        User newUser = new User();
-//        newUser.setPassword("123");
-//        newUser.setUsername("user");
-//        userService.save(newUser);
-
-//        User anotherUser = new User();
-//        anotherUser.setUsername("Operator");
-//        anotherUser.setPassword("12345678");
-//        userService.save(anotherUser);
-
-//        User guest = new User();
-//        guest.setUsername("superAdmin");
-//        guest.setPassword("12345678");
-//        guest.setUsertype("admin");
-//        userService.save(guest);
-
         return "index";
     }
 
