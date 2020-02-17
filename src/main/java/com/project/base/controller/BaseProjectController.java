@@ -73,6 +73,7 @@ public class BaseProjectController {
      String createUser(@ModelAttribute User user){
 
         String debug = "debug";
+        userService.save(user);
 
         return "secured";
      }
