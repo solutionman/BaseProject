@@ -58,8 +58,6 @@ public class BaseProjectController {
         Authentication authentication = context.getAuthentication();
         String currentUser = authentication.getName();
 
-        String debug = "debug";
-
         return "secured";
     }
 
@@ -84,7 +82,6 @@ public class BaseProjectController {
 
     @RequestMapping("/")
     String index(Model model){
-//        String message = "Index page";
         model.addAttribute("message",message);
 
         User user = userService.findByUsername("user");
@@ -98,11 +95,6 @@ public class BaseProjectController {
     String welcome(Model model){
         String welcomePage = "Welcome page";
         model.addAttribute("welcomePage",welcomePage);
-
-//        SimpleRecord newSimpleRecord = new SimpleRecord();
-//        newSimpleRecord.setRecordName("someName inserted");
-//        newSimpleRecord.setShortName("some shortName inserted");
-        //simpleRecordService.save(newSimpleRecord);
 
         List<SimpleRecord> simpleRecordList = simpleRecordService.findAll();
         model.addAttribute("simpleRecordList", simpleRecordList);
