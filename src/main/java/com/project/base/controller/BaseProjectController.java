@@ -119,7 +119,15 @@ public class BaseProjectController {
     public String deleteSimpleRecord(@RequestParam(name="id")Long id){
 //        SimpleRecord simpleRecord = simpleRecordService.findById(id);
         simpleRecordService.deleteById(id);
-        
+
         return "redirect: /base/welcome";
     }
+
+    @GetMapping("/users")
+    String users(Model model){
+        List<User> userList = userService.findAll();
+        model.addAttribute("userList", userList);
+        return "users";
+    }
+
 }
