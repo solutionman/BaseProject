@@ -115,4 +115,11 @@ public class BaseProjectController {
         return "redirect: /base/welcome";
     }
 
+    @GetMapping("/deleteSimpleRecord")
+    public String deleteSimpleRecord(@RequestParam(name="id")Long id){
+        String debug = "debug";
+        SimpleRecord simpleRecord = simpleRecordService.findById(id);
+
+        return "redirect: /base/welcome";
+    }
 }
