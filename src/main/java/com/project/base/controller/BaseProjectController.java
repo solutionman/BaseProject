@@ -55,6 +55,11 @@ public class BaseProjectController {
 
     @RequestMapping(value = "/secured", method = RequestMethod.GET)
     String secured(Model model){
+
+        SecurityContext context = SecurityContextHolder.getContext();
+        Authentication authentication = context.getAuthentication();
+        String currentUser = authentication.getName();
+
         String debug = "debug";
 
         return "secured";
