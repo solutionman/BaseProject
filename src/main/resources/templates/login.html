@@ -12,8 +12,8 @@
     You have been logged out.
 </div>
 <form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="username" value="admin"/> </label></div>
-    <div><label> Password: <input type="password" name="password" value="12345678"/> </label></div>
+    <div><label> User Name : <input type="text" name="username" /> </label></div>
+    <div><label> Password: <input type="password" name="password" /> </label></div>
     <div><input type="submit" value="Sign In"/></div>
 </form>
 <div><a th:href="@{/}">Back to unsecured page</a></div>
@@ -24,6 +24,9 @@
 <div><label> Password: 12345678 </label></div>
 <br>
 <div><label> User Name : Operator </label></div>
+<div><label> Password: 12345678 </label></div>
+<br>
+<div><label> User Name : Guest </label></div>
 <div><label> Password: 12345678 </label></div>
 <br>
 <div><label> User Name : superAdmin </label></div>

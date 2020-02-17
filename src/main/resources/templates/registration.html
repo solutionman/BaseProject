@@ -20,7 +20,13 @@
             <input type="text" th:field="*{password}" name="password" />
         </label>
         <label> usertype:
-            <input type="text" th:field="*{usertype}" name="usertype" />
+            <select th:field="*{usertype}">
+                <option th:value="'user'" th:text="User"></option>
+                <option th:value="'admin'" th:text="Admin"></option>
+                <option th:value="'operator'" th:text="Operator"></option>
+                <option th:value="'guest'" th:text="Guest"></option>
+            </select>
+<!--            <input type="text" th:field="*{usertype}" name="usertype" />-->
         </label>
         <br><br>
         <div class="alert-success">
