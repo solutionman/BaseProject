@@ -27,4 +27,9 @@ public class SimpleRecordServiceImpl implements SimpleRecordService {
     public void save(SimpleRecord simpleRecord) {
         simpleRecordDao.save(simpleRecord);
     }
+
+    @Override
+    public SimpleRecord deleteById(long id) {
+        return simpleRecordDao.deleteById(id);
+    }
 }

@@ -117,9 +117,9 @@ public class BaseProjectController {
 
     @GetMapping("/deleteSimpleRecord")
     public String deleteSimpleRecord(@RequestParam(name="id")Long id){
-        String debug = "debug";
-        SimpleRecord simpleRecord = simpleRecordService.findById(id);
-
+//        SimpleRecord simpleRecord = simpleRecordService.findById(id);
+        simpleRecordService.deleteById(id);
+        
         return "redirect: /base/welcome";
     }
 }
