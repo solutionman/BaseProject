@@ -72,8 +72,9 @@ public class BaseProjectController {
      @PostMapping("/registration")
      String createUser(@ModelAttribute User user){
 
-        String debug = "debug";
-        userService.save(user);
+        if( null == userService.findByUsername(user.getUsername())){
+            userService.save(user);
+        }
 
         return "secured";
      }
