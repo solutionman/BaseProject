@@ -130,4 +130,25 @@ public class BaseProjectController {
         return "users";
     }
 
+    @GetMapping("/editUser")
+    String editUser(@RequestParam(name="id")Long id, Model model){
+        User user = userService.findById(id);
+        model.addAttribute("user",user);
+        return "editUser";
+    }
+
+    @PostMapping("/editUser")
+    String doEditUser(@ModelAttribute User user){
+        User userToEdit = userService.findById(user.getId());
+        if( null != user.getUsername() ){ userToEdit.setUsername(user.getUsername()); }
+        User test = userService.findByUsername( user.getUsername() );
+        if( (null != user.getUsertype() ) && (null == userService.findByUsername(user.getUsername())) ){
+            userToEdit.setUsertype(user.getUsertype());
+        }
+
+        userService.save( userToEdit );
+
+        return "redirect: /base/users";
+    }
+
 }
