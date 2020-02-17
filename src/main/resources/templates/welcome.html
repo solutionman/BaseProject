@@ -16,6 +16,9 @@
         <li th:each="rec : ${simpleRecordList}" th:text="${rec}"></li>
     </ol>
 
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
     <p><a href="/base">To index page</a></p>
     <p><a href="secured">To secured page</a></p>
 

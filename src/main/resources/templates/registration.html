@@ -22,6 +22,10 @@
             <button type="submit" class="alert-success" style="width: 100px;height: 20px">Create User</button>
         </div>
     </form>
+
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
     <p><a href="welcome">To welcome page</a></p>
     <p><a href="/base">To index page</a></p>
 <!--    <script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>-->
