@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>Welcome page</title>
-    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+<!--    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>-->
+<!--    <link rel="stylesheet" th:href="@{/css/main.css}"/>-->
 </head>
 <body>
     <h1 th:inline="text">[[${#httpServletRequest.remoteUser}]]</h1>
@@ -16,6 +16,21 @@
     <p><span th:text="${simpleRecord}"></span></p>
     <p><span th:text="${simpleRecord.recordName}"></span></p>
 
+    <p>Insert simpleRecord</p>
+    <form method="post" action="#" th:action="@{/insertRecord}" th:object="${newSimpleRecord}">
+        <label> record Name:
+            <input type="text" th:field="*{recordName}" />
+        </label>
+        <label> short Name:
+            <input type="text" th:field="*{shortName}" />
+        </label>
+        <br><br>
+        <div class="alert-success">
+            <button type="submit" class="alert-success" style="width: 100px;height: 20px">Insert Record</button>
+        </div>
+    </form>
+    <br><br>
+
     <ol>
         <li th:each="rec : ${simpleRecordList}" th:text="${rec}"></li>
     </ol>
@@ -24,7 +39,7 @@
     <p><a href="/base">To index page</a></p>
     <p><a href="secured">To secured page</a></p>
 
-    <script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+<!--    <script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>-->
 </body>
 </html>
 

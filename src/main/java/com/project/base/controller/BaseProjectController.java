@@ -94,15 +94,15 @@ public class BaseProjectController {
         return "index";
     }
 
-    @RequestMapping("/welcome")
+    @GetMapping("/welcome")
     String welcome(Model model){
         String welcomePage = "Welcome page";
         model.addAttribute("welcomePage",welcomePage);
 
-        SimpleRecord newSimpleRecord = new SimpleRecord();
-        newSimpleRecord.setRecordName("someName inserted");
-        newSimpleRecord.setShortName("some shortName inserted");
-        simpleRecordService.save(newSimpleRecord);
+//        SimpleRecord newSimpleRecord = new SimpleRecord();
+//        newSimpleRecord.setRecordName("someName inserted");
+//        newSimpleRecord.setShortName("some shortName inserted");
+        //simpleRecordService.save(newSimpleRecord);
 
         List<SimpleRecord> simpleRecordList = simpleRecordService.findAll();
         model.addAttribute("simpleRecordList", simpleRecordList);
@@ -110,7 +110,17 @@ public class BaseProjectController {
         SimpleRecord simpleRecord = simpleRecordService.findById(1);
         model.addAttribute("simpleRecord",simpleRecord);
 
-        return "welcome";
+        model.addAttribute( "newSimpleRecord", new SimpleRecord() );
+
+        return "/welcome";
+    }
+
+    @PostMapping("/insertRecord")
+    String insertRecord(@ModelAttribute SimpleRecord simpleRecord ){
+        
+        simpleRecordService.save(simpleRecord);
+
+        return "redirect: /base/welcome";
     }
 
 }
