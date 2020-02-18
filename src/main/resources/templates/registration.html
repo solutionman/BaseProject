@@ -15,10 +15,10 @@
     <h1>Create new user</h1>
     <form method="post" action="#" th:action="@{/registration}" th:object="${user}" class="form-group">
         <label> username:
-            <input type="text" th:field="*{username}" class="form-control" placeholder="Enter user name"  name="username" />
+            <input type="text" th:field="*{username}" class="form-control" placeholder="Enter user name"  name="username" required/>
         </label>
         <label> password:
-            <input type="text" th:field="*{password}" class="form-control" placeholder="Enter password"  name="password" />
+            <input type="text" th:field="*{password}" class="form-control" placeholder="Enter password"  name="password" required/>
         </label>
         <label> usertype:
             <select th:field="*{usertype}">
