@@ -5,6 +5,7 @@
     <title>Edit user</title>
 <!--    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>-->
 <!--    <link rel="stylesheet" th:href="@{/css/main.css}"/>-->
+    <link href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" />
 </head>
 <body>
     <h1 th:inline="text">[[${#httpServletRequest.remoteUser}]]</h1>
@@ -29,15 +30,16 @@
             </select>
 <!--            <input type="text" th:field="*{usertype}" name="usertype" />-->
         </label>
-        <br><br>
-        <div class="alert-success">
-            <button type="submit" class="alert-success" style="width: 100px;height: 20px">Edit User</button>
+        <br>
+        <div >
+            <button type="submit" class="alert-success" >Save Changes</button>
         </div>
     </form>
-
+    <br>
     <p><a href="welcome">To welcome page</a></p>
     <p><a href="/base">To index page</a></p>
 <!--    <script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>-->
+    <link href="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}" />
 </body>
 </html>
 

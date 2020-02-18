@@ -13,15 +13,16 @@
         <input type="submit" value="Sign Out"/>
     </form>
 
-    <table class="table">
+    <table class="table table-bordered table-sm">
         <tr>
             <td>User Name</td>
             <td>User Type</td>
+            <td></td>
         </tr>
         <tr th:each="user : ${userList}">
             <td th:text="${user.username}"></td>
             <td th:text="${user.usertype}"></td>
-            <td><a th:href="@{/editUser(id=${user.id})}" >EDIT</a></td>
+            <td><a th:href="@{/editUser(id=${user.id})}" type="button" class="btn btn-info">EDIT</a></td>
         </tr>
     </table>
 
