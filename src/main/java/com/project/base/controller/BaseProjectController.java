@@ -74,7 +74,7 @@ public class BaseProjectController {
 
         if( null == userService.findByUsername(user.getUsername())){
             userService.save(user);
-            return "/secured";
+            return "redirect: /base/secured";
         }
         return "/registration";
      }
