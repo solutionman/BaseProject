@@ -16,7 +16,7 @@
     <form method="post" action="#" th:action="@{/editUser}" th:object="${user}">
         <input type="hidden" th:field="*{id}"/>
         <label> username:
-            <input type="text" th:field="*{username}" name="username" />
+            <input type="text" th:field="*{username}" name="username" required/>
         </label>
 <!--        <label> password:-->
 <!--            <input type="text" th:field="*{password}" name="password" />-->
