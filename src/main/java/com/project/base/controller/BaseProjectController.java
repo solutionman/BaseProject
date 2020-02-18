@@ -151,4 +151,11 @@ public class BaseProjectController {
         return "redirect: /base/users";
     }
 
+    @GetMapping("/deleteUser")
+    String deleteUser(@RequestParam(name="id")Long id, Model model){
+        User user = userService.findById(id);
+        userService.delete(user);
+        return "redirect: /base/users";
+    }
+
 }
