@@ -22,24 +22,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return bCryptPasswordEncoder;
     }
 
-
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-
         // Setting Service to find User in the database.
         // And Setting PassswordEncoder
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-
     }
-
-//    @Autowired
-//    public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication().withUser("user").password("12345678").roles("USER");
-//        auth.inMemoryAuthentication().withUser("admin").password("12345678").roles("ADMIN");
-//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
