@@ -56,7 +56,9 @@ public class BaseProjectController {
 
         SecurityContext context = SecurityContextHolder.getContext();
         Authentication authentication = context.getAuthentication();
-        String currentUser = authentication.getName();
+//        String currentUser = authentication.getName();
+        User currentUser = userService.findByUsername(authentication.getName());
+        model.addAttribute("currentUser",currentUser);
 
         return "secured";
     }
