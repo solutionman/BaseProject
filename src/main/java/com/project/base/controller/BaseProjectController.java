@@ -146,7 +146,7 @@ public class BaseProjectController {
         }
         if( null != user.getUsertype() ){ userToEdit.setUsertype(user.getUsertype()); }
 
-        userService.save( userToEdit );
+        userService.update( userToEdit );
 
         return "redirect: /base/users";
     }

@@ -12,7 +12,11 @@
         <input type="submit" value="Sign Out"/>
     </form>
 
-    <table>
+    <table style="border: black">
+        <tr>
+            <td>User Name</td>
+            <td>User Type</td>
+        </tr>
         <tr th:each="user : ${userList}">
             <td th:text="${user.username}"></td>
             <td th:text="${user.usertype}"></td>
