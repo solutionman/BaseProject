@@ -13,14 +13,14 @@
         <input type="submit" value="Sign Out"/>
     </form>
     <h1>Edit user</h1>
-    <form method="post" action="#" th:action="@{/editUser}" th:object="${user}">
+    <form method="post" action="#" th:action="@{/editUser}" th:object="${user}" class="form-group">
         <input type="hidden" th:field="*{id}"/>
         <label> username:
             <input type="text" th:field="*{username}" name="username" required/>
         </label>
-<!--        <label> password:-->
-<!--            <input type="text" th:field="*{password}" name="password" />-->
-<!--        </label>-->
+        <label> password (left blank if you don't want to change it):
+            <input type="text" th:field="*{password}" name="password" placeholder="new password" />
+        </label>
         <label> usertype:
             <select th:field="*{usertype}">
                 <option th:value="'user'" th:text="User"></option>

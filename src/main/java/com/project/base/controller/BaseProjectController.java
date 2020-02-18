@@ -6,10 +6,10 @@ import com.project.base.service.SimpleRecordService;
 import com.project.base.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +24,9 @@ public class BaseProjectController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     String login(){
@@ -135,6 +138,7 @@ public class BaseProjectController {
     @GetMapping("/editUser")
     String editUser(@RequestParam(name="id")Long id, Model model){
         User user = userService.findById(id);
+        user.setPassword(null);
         model.addAttribute("user",user);
         return "editUser";
     }
@@ -146,7 +150,8 @@ public class BaseProjectController {
         if( null != user.getUsername() && ( null == userService.findByUsername( user.getUsername()) ) ){
             userToEdit.setUsername(user.getUsername());
         }
-        if( null != user.getUsertype() ){ userToEdit.setUsertype(user.getUsertype()); }
+        if( null != user.getUsertype() ){ userToEdit.setUsertype( user.getUsertype()); }
+        if( null != user.getPassword() ){ userToEdit.setPassword(bCryptPasswordEncoder.encode(user.getPassword())); }
 
         userService.update( userToEdit );
 
