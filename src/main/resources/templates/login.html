@@ -3,6 +3,7 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <title>Spring Security Example </title>
+<!--    <link href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" />-->
 </head>
 <body>
 <div th:if="${param.error}">
@@ -33,5 +34,7 @@
 <br>
 <div><label> User Name : superAdmin </label></div>
 <div><label> Password: 12345678 </label></div>
+
+<!--<link href="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}" />-->
 </body>
 </html>

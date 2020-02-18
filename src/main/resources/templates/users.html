@@ -5,6 +5,7 @@
     <title>Users</title>
 <!--    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>-->
 <!--    <link rel="stylesheet" th:href="@{/css/main.css}"/>-->
+    <link href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" />
 </head>
 <body>
     <h1 th:inline="text">[[${#httpServletRequest.remoteUser}]]</h1>
@@ -12,7 +13,7 @@
         <input type="submit" value="Sign Out"/>
     </form>
 
-    <table style="border: black">
+    <table>
         <tr>
             <td>User Name</td>
             <td>User Type</td>
@@ -28,6 +29,7 @@
     <p><a href="secured">To secured page</a></p>
 
 <!--    <script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>-->
+    <link href="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}" />
 </body>
 </html>
 
