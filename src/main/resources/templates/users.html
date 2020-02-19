@@ -16,13 +16,18 @@
     <table class="table table-bordered table-sm">
         <tr>
             <td>User Name</td>
-            <td>User Roles</td>
+            <td>Roles</td>
             <td></td>
             <td></td>
         </tr>
         <tr th:each="user : ${userList}">
             <td th:text="${user.username}"></td>
-            <td th:text="${user.usertype}"></td>
+<!--            <td th:text="${user.usertype}"></td>-->
+            <td>
+                <ol>
+                    <li th:each="role : ${user.roles}" th:text="${role.name}"></li>
+                </ol>
+            </td>
             <td><a th:href="@{/editUser(id=${user.id})}" type="button" class="btn btn-info">EDIT</a></td>
             <td><a th:href="@{/deleteUser(id=${user.id})}" type="button" class="btn btn-danger">DELETE</a></td>
         </tr>
