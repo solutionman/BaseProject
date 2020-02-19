@@ -152,6 +152,7 @@ public class BaseProjectController {
         }
         if( null != user.getUsertype() ){ userToEdit.setUsertype( user.getUsertype()); }
         if( null != user.getPassword() ){ userToEdit.setPassword(bCryptPasswordEncoder.encode(user.getPassword())); }
+        if( null != user.getRoles() ){ userToEdit.setRoles( user.getRoles() ); }
 
         userService.update( userToEdit );
 

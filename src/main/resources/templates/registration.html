@@ -20,14 +20,23 @@
         <label> password:
             <input type="text" th:field="*{password}" class="form-control" placeholder="Enter password"  name="password" required/>
         </label>
-        <label> usertype:
-            <select th:field="*{usertype}" class="form-control">
-                <option th:value="'user'" th:text="User"></option>
-                <option th:value="'admin'" th:text="Admin"></option>
-                <option th:value="'operator'" th:text="Operator"></option>
-                <option th:value="'guest'" th:text="Guest"></option>
-            </select>
+<!--        <label> usertype:-->
+<!--            <select th:field="*{usertype}" class="form-control">-->
+<!--                <option th:value="'user'" th:text="User"></option>-->
+<!--                <option th:value="'admin'" th:text="Admin"></option>-->
+<!--                <option th:value="'operator'" th:text="Operator"></option>-->
+<!--                <option th:value="'guest'" th:text="Guest"></option>-->
+<!--            </select>-->
 <!--            <input type="text" th:field="*{usertype}" name="usertype" />-->
+<!--        </label>-->
+        <label> roles:
+            <select th:field="*{roles}" class="form-control" multiple>
+                <option th:value="'1'" th:text="USER"></option>
+                <option th:value="'2'" th:text="ADMIN"></option>
+                <option th:value="'3'" th:text="ROLE_GUEST"></option>
+                <option th:value="'4'" th:text="ROLE_PERFORMER"></option>
+            </select>
+            <!--            <input type="text" th:field="*{usertype}" name="usertype" />-->
         </label>
         <br><br>
         <div >

@@ -29,22 +29,21 @@ public class UserServiceImpl implements UserService {
     @Override
     public void save( User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        Set<Role> roles = new HashSet<>();
-        switch (user.getUsertype()) {
-            case "admin":
-                roles.add(roleDao.getOne(2L));
-                break;
-            case "user":
-                roles.add(roleDao.getOne(1L));
-                break;
-            case "operator":
-                roles.add(roleDao.getOne(4L));
-                break;
-            default: roles.add(roleDao.getOne(3L));
-                break;
-        }
-
-        user.setRoles(roles);
+//        Set<Role> roles = new HashSet<>();
+//        switch (user.getUsertype()) {
+//            case "admin":
+//                roles.add(roleDao.getOne(2L));
+//                break;
+//            case "user":
+//                roles.add(roleDao.getOne(1L));
+//                break;
+//            case "operator":
+//                roles.add(roleDao.getOne(4L));
+//                break;
+//            default: roles.add(roleDao.getOne(3L));
+//                break;
+//        }
+//        user.setRoles(roles);
         userDao.save(user);
     }
 
