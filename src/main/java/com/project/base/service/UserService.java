@@ -12,8 +12,6 @@ public interface UserService {
 
     List<User> findAll();
 
-    List<User> findUsersByUsertype(String usertype);
-
     User findById(long id);
 
     void update(User user);

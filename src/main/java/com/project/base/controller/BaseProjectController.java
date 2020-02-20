@@ -91,7 +91,7 @@ public class BaseProjectController {
 
         User user = userService.findByUsername("user");
         List<User> userList = userService.findAll();
-        List<User> users = userService.findUsersByUsertype("admin");
+//        List<User> users = userService.findUsersByUsertype("admin");
 
         return "index";
     }
@@ -150,7 +150,6 @@ public class BaseProjectController {
         if( null != user.getUsername() && ( null == userService.findByUsername( user.getUsername()) ) ){
             userToEdit.setUsername(user.getUsername());
         }
-        if( null != user.getUsertype() ){ userToEdit.setUsertype( user.getUsertype()); }
         if( null != user.getPassword() ){ userToEdit.setPassword(bCryptPasswordEncoder.encode(user.getPassword())); }
         if( null != user.getRoles() ){ userToEdit.setRoles( user.getRoles() ); }
 
