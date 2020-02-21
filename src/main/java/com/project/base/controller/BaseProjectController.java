@@ -1,5 +1,6 @@
 package com.project.base.controller;
 
+import com.project.base.model.Role;
 import com.project.base.model.SimpleRecord;
 import com.project.base.model.User;
 import com.project.base.service.SimpleRecordService;
@@ -62,6 +63,14 @@ public class BaseProjectController {
 //        String currentUser = authentication.getName();
         User currentUser = userService.findByUsername(authentication.getName());
         model.addAttribute("currentUser",currentUser);
+        String isAdmin = "no";
+        for(Role role : currentUser.getRoles() ){
+            if(role.getName().equals("ADMIN")){
+                isAdmin = "yes";
+                break;
+            }
+        }
+        model.addAttribute( "isAdmin", isAdmin );
 
         return "secured";
     }
