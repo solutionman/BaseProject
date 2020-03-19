@@ -174,4 +174,9 @@ public class BaseProjectController {
         return "redirect: /base/users";
     }
 
+    @RequestMapping(path = "table", method = RequestMethod.GET)
+    String table(){
+        return "table";
+    }
+
 }

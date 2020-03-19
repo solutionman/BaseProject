@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Welcome page</title>
+<!--    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>-->
+<!--    <link rel="stylesheet" th:href="@{/css/main.css}"/>-->
+    <link href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <h1 th:inline="text">[[${#httpServletRequest.remoteUser}]]</h1>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+
+    <p>Table example</p>
+
+    <table id="simpleRecords" class="display">
+
+        <!-- Header Table -->
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>record_name</th>
+            <th>short_name</th>
+        </tr>
+        </thead>
+        <!-- Footer Table -->
+        <tfoot>
+        <tr>
+            <th>Id</th>
+            <th>record_name</th>
+            <th>short_name</th>
+        </tr>
+        </tfoot>
+    </table>
+
+    <p><a href="/base">To index page</a></p>
+    <p><a href="secured">To secured page</a></p>
+
+    <link href="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="js/simpleRecords.js"></script>
+<!--    <script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>-->
+</body>
+</html>
+
