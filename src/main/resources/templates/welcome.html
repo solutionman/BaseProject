@@ -14,6 +14,10 @@
     </form>
 
     <h1 th:text="${welcomePage}"></h1>
+
+    <p><a href="/base">To index page</a></p>
+    <p><a href="secured">To secured page</a></p>
+
     <p><span th:text="${simpleRecord}"></span></p>
     <p><span th:text="${simpleRecord.recordName}"></span></p>
 
@@ -45,8 +49,7 @@
         </tr>
     </table>
 
-    <p><a href="/base">To index page</a></p>
-    <p><a href="secured">To secured page</a></p>
+
 
     <link href="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}" />
 <!--    <script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>-->
