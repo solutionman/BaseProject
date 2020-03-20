@@ -5,8 +5,8 @@ $(document).ready( function () {
         "order": [[ 0, "asc" ]],
         "aoColumns": [
             { "mData": "id"},
-            { "mData": "recordName" },
-            { "mData": "shortName" }
+            { "mData": "shortName" },
+            { "mData": "recordName" }
         ],
         "responsive": "true",
         columnDefs:[
