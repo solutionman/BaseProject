@@ -7,6 +7,12 @@ $(document).ready( function () {
             { "mData": "id"},
             { "mData": "recordName" },
             { "mData": "shortName" }
+        ],
+        "responsive": "true",
+        columnDefs:[
+            { responsivePriority: 1, targets: 0 },
+            { responsivePriority: 10001, targets: 2 },
+            { responsivePriority: 2, targets: 1 }
         ]
     })
 });

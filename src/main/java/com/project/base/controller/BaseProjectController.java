@@ -179,4 +179,9 @@ public class BaseProjectController {
         return "table";
     }
 
+    @RequestMapping(path = "responsiveTable", method = RequestMethod.GET)
+    String responsiveTable(){
+        return "responsiveTable";
+    }
+
 }
