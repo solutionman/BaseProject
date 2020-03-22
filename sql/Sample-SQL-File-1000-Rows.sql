@@ -8,7 +8,7 @@
 -- Table structure for table `user_details`
 --
 
-create table user_details(
+create table test_records(
     id       serial not null,
     username varchar(255),
     first_name varchar(255),
@@ -18,13 +18,13 @@ create table user_details(
     status varchar(255)
 );
 
-alter table user_details owner to dima;
+alter table test_records owner to dima;
 
 --
 -- Dumping data for table `user_details`
 --
 
-INSERT INTO user_details (id, username, first_name, last_name, gender, password, status) VALUES
+INSERT INTO test_records (id, username, first_name, last_name, gender, password, status) VALUES
 (1, 'rogers63', 'david', 'john', 'Female', 'e6a33eee180b07e563d74fee8c2c66b8', 1),
 (2, 'mike28', 'rogers', 'paul', 'Male', '2e7dc6b8a1598f4f75c3eaa47958ee2f', 1),
 (3, 'rivera92', 'david', 'john', 'Male', '1c3a8e03f448d211904161a6f5849b68', 1),
@@ -621,7 +621,7 @@ INSERT INTO user_details (id, username, first_name, last_name, gender, password,
 (594, 'john62', 'morgan', 'bell', 'Male', 'cee38bdf685ff9779ffd7dfa84830914', 1),
 (595, 'maria40', 'mike', 'mike', 'Female', '3c44940d53e0cf88126f4f2699275051', 1),
 (596, 'james50', 'mark', 'john', 'Male', '3b0b82eb79617a9f8805573b1baec238', 1);
-INSERT INTO user_details (id, username, first_name, last_name, gender, password, status) VALUES
+INSERT INTO test_records (id, username, first_name, last_name, gender, password, status) VALUES
 (597, 'ross63', 'morgan', 'mike', 'Female', '70d70c6d340b463fc4b3fde8d133de6d', 1),
 (598, 'wright56', 'ross', 'chrishaydon', 'Male', '279910d191730d428742ff2b010c30be', 1),
 (599, 'brown93', 'wright', 'brown', 'Female', 'cdd6bf95eefe26b43fed49f64e635536', 1),
