@@ -1,12 +1,12 @@
 $(document).ready( function () {
-    var table = $('#simpleRecords').DataTable({
-        "sAjaxSource": "/base/simpleRecords",
+    var table = $('#testRecords').DataTable({
+        "sAjaxSource": "/base/testRecords",
         "sAjaxDataProp": "",
         "order": [[ 0, "asc" ]],
         "aoColumns": [
-            { "mData": "id"},
-            { "mData": "recordName" },
-            { "mData": "shortName" }
+            { "mData": "username"},
+            { "mData": "firstname" },
+            { "mData": "lastname" }
         ]
     })
 });
