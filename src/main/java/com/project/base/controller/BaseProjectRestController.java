@@ -7,9 +7,12 @@ import com.project.base.service.TestRecordsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class BaseProjectRestController {
@@ -27,11 +30,24 @@ public class BaseProjectRestController {
         return simpleRecords;
     }
 
+//    @RequestMapping(path = "testRecords", method = RequestMethod.GET)
+//    public List<TestRecords> testRecords(){
+//        String debug = "";
+//        List<TestRecords> testRecords = testRecordsService.findAll();
+//        return testRecords;
+//    }
+
     @RequestMapping(path = "testRecords", method = RequestMethod.GET)
-    public List<TestRecords> testRecords(){
+    public Map<String, Object> testRecords(@RequestParam Map<String, String> requestParams){
         String debug = "";
+        Map<String, Object> result = new HashMap<>();
+        result.put("draw", 10);
+        result.put("recordsTotal", 1000);
+        result.put("recordsFiltered", 1000);
         List<TestRecords> testRecords = testRecordsService.findAll();
-        return testRecords;
+        result.put("data", testRecords);
+
+        return result;
     }
 
 }

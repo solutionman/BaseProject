@@ -1,14 +1,14 @@
 $(document).ready( function () {
     var table = $('#testRecords').DataTable({
-        "sAjaxSource": "/base/testRecords",
-        "sAjaxDataProp": "",
-        "processing": false,
-        "serverSide": false,
+        sAjaxSource: '/base/testRecords',
+        sAjaxDataProp: 'data',
+        processing: true,
+        serverSide: true,
         "order": [[ 0, "asc" ]],
-        "aoColumns": [
-            { "mData": "username"},
-            { "mData": "firstname" },
-            { "mData": "lastname" }
+        columns: [
+            { data: "username"},
+            { data: "firstname" },
+            { data: "lastname" }
         ]
     })
 });
