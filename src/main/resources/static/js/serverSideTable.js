@@ -6,9 +6,9 @@ $(document).ready( function () {
         serverSide: true,
         "order": [[ 0, "asc" ]],
         columns: [
-            { data: "username"},
-            { data: "firstname" },
-            { data: "lastname" }
+            { data: "username", title : 'username'},
+            { data: "firstname", title: 'firstname' },
+            { data: "lastname", title: 'lastname' }
         ]
     })
 });
