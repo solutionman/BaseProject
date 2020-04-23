@@ -56,6 +56,8 @@ public class BaseProjectRestController {
                     searchResult.add(tr);
                 }
             }
+            result.put( "recordsTotal", testRecords.size() );
+            result.put( "recordsFiltered", searchResult.size() );
             result.put("data", searchResult);
         }
         return result;
