@@ -50,7 +50,9 @@ public class BaseProjectRestController {
         if(search==null || search.equals("")){
             result.put("recordsFiltered", testRecords.size());
             testRecords.subList(0, Integer.parseInt(start)).clear();
-            testRecords.subList(Integer.parseInt(length), testRecords.size()).clear();
+            if( testRecords.size() > Integer.parseInt(length) ) {
+                testRecords.subList(Integer.parseInt(length), testRecords.size()).clear();
+            }
             result.put("data", testRecords);
         }else {
             List<TestRecords> searchResult = new ArrayList<>();
@@ -61,7 +63,9 @@ public class BaseProjectRestController {
             }
             result.put( "recordsFiltered", searchResult.size() );
             searchResult.subList(0, Integer.parseInt(start)).clear();
-            searchResult.subList(Integer.parseInt(length), searchResult.size()).clear();
+            if( searchResult.size() > Integer.parseInt(length) ){
+                searchResult.subList(Integer.parseInt(length), searchResult.size()).clear();
+            }
             result.put("data", searchResult);
         }
         int draw = Integer.parseInt(requestParams.get("draw"));
