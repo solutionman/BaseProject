@@ -43,6 +43,7 @@ public class BaseProjectRestController {
 
         Map<String, Object> result = new HashMap<>();
         List<TestRecords> testRecords = testRecordsService.findAll();
+        result.put( "recordsTotal", testRecords.size() );
         String length = requestParams.get("length");
         String start = requestParams.get("start");
         String search = requestParams.get("search[value]");
@@ -65,7 +66,6 @@ public class BaseProjectRestController {
         }
         int draw = Integer.parseInt(requestParams.get("draw"));
         result.put( "draw", draw );
-        result.put( "recordsTotal", testRecords.size() );
         return result;
     }
 
