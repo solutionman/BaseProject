@@ -40,14 +40,16 @@ public class BaseProjectRestController {
 
     @RequestMapping(path = "testRecords", method = RequestMethod.GET)
     public Map<String, Object> testRecords(@RequestParam Map<String, String> requestParams){
-        String debug = "";
+
         Map<String, Object> result = new HashMap<>();
-//        result.put("draw", 10);
-//        result.put("recordsTotal", 1000);
-//        result.put("recordsFiltered", 1000);
         List<TestRecords> testRecords = testRecordsService.findAll();
+        String length = requestParams.get("length");
+        String start = requestParams.get("start");
         String search = requestParams.get("search[value]");
         if(search==null || search.equals("")){
+            result.put("recordsFiltered", testRecords.size());
+            testRecords.subList(0, Integer.parseInt(start)).clear();
+            testRecords.subList(Integer.parseInt(length), testRecords.size()).clear();
             result.put("data", testRecords);
         }else {
             List<TestRecords> searchResult = new ArrayList<>();
@@ -56,10 +58,14 @@ public class BaseProjectRestController {
                     searchResult.add(tr);
                 }
             }
-            result.put( "recordsTotal", testRecords.size() );
             result.put( "recordsFiltered", searchResult.size() );
+            searchResult.subList(0, Integer.parseInt(start)).clear();
+            searchResult.subList(Integer.parseInt(length), searchResult.size()).clear();
             result.put("data", searchResult);
         }
+        int draw = Integer.parseInt(requestParams.get("draw"));
+        result.put( "draw", draw );
+        result.put( "recordsTotal", testRecords.size() );
         return result;
     }
 
