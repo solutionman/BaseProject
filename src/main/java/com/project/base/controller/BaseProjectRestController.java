@@ -84,7 +84,7 @@ public class BaseProjectRestController {
         Integer recordsTotal = 10; // count your records and put here;
         Integer recordsFiltered = 5; // filter your records and put here;
         ArrayList<Object> youObjects = new ArrayList<>(); // put yout selected objects here
-        for( int j = 0; j < 10; j++ ){
+        for( int j = 0; j < 5; j++ ){
             Company company = new Company();
             company.setId(j);
             company.setName("someName");
