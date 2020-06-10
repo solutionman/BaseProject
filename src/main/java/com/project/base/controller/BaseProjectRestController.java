@@ -1,5 +1,6 @@
 package com.project.base.controller;
 
+import com.project.base.helpers.Company;
 import com.project.base.model.SimpleRecord;
 import com.project.base.model.TestRecords;
 import com.project.base.service.SimpleRecordService;
@@ -73,4 +74,29 @@ public class BaseProjectRestController {
         return result;
     }
 
+    @RequestMapping(path = "/getcompany", method = RequestMethod.GET)
+    public Map< String, Object > getcompany(@RequestParam Map<String, String> data) {
+
+        Map<String, Object> result = new HashMap<>();
+
+        Integer draw = Integer.parseInt(data.get("draw")) + 1;
+
+        Integer recordsTotal = 10; // count your records and put here;
+        Integer recordsFiltered = 5; // filter your records and put here;
+        ArrayList<Object> youObjects = new ArrayList<>(); // put yout selected objects here
+        for( int j = 0; j < 10; j++ ){
+            Company company = new Company();
+            company.setId(j);
+            company.setName("someName");
+            company.setShortname("shortName");
+            youObjects.add(company);
+        }
+
+        result.put("draw", draw);
+        result.put("recordsTotal", recordsTotal);
+        result.put("recordsFiltered", recordsFiltered);
+        result.put("data", youObjects);
+
+        return result;
+    }
 }

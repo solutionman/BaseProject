@@ -189,4 +189,8 @@ public class BaseProjectController {
         return "serverSideTable";
     }
 
+    @RequestMapping(path = "companiesTable", method = RequestMethod.GET)
+    String companiesTable(){
+        return "companiesTable";
+    }
 }
