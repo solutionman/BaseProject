@@ -81,10 +81,10 @@ public class BaseProjectRestController {
 
         Integer draw = Integer.parseInt(data.get("draw")) + 1;
 
-        Integer recordsTotal = 10; // count your records and put here;
-        Integer recordsFiltered = 5; // filter your records and put here;
+        Integer recordsTotal = 100; // count your records and put here;
         ArrayList<Object> youObjects = new ArrayList<>(); // put yout selected objects here
-        for( int j = 0; j < 5; j++ ){
+        int length = Integer.parseInt(data.get("length"));
+        for( int j = 0; j < length; j++ ){
             Company company = new Company();
             company.setId(j);
             company.setName("someName");
@@ -94,7 +94,7 @@ public class BaseProjectRestController {
 
         result.put("draw", draw);
         result.put("recordsTotal", recordsTotal);
-        result.put("recordsFiltered", recordsFiltered);
+        result.put("recordsFiltered", youObjects.size());
         result.put("data", youObjects);
 
         return result;
