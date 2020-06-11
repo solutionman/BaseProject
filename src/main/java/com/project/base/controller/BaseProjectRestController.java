@@ -81,21 +81,25 @@ public class BaseProjectRestController {
 
         Integer draw = Integer.parseInt(data.get("draw")) + 1;
 
-        Integer recordsTotal = 100; // count your records and put here;
-        ArrayList<Object> youObjects = new ArrayList<>(); // put yout selected objects here
+        ArrayList<Object> youObjectsSelected = new ArrayList<>(); // put your selected objects here
+        int start = Integer.parseInt(data.get("start"));
         int length = Integer.parseInt(data.get("length"));
-        for( int j = 0; j < length; j++ ){
+        for( int j = 0; j < 50; j++ ){
             Company company = new Company();
             company.setId(j);
             company.setName("someName");
             company.setShortname("shortName");
-            youObjects.add(company);
+            youObjectsSelected.add(company);
+        }
+        ArrayList<Object> yourSObjectsForPage = new ArrayList<>(); // get only objects for displaying on page
+        for( int k = start; k < start + length; k++ ){
+            yourSObjectsForPage.add( youObjectsSelected.get(k) );
         }
 
         result.put("draw", draw);
-        result.put("recordsTotal", recordsTotal);
-        result.put("recordsFiltered", youObjects.size());
-        result.put("data", youObjects);
+        result.put("recordsTotal", 100);
+        result.put("recordsFiltered", youObjectsSelected.size());
+        result.put("data", yourSObjectsForPage);
 
         return result;
     }
