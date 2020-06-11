@@ -79,7 +79,7 @@ public class BaseProjectRestController {
 
         Map<String, Object> result = new HashMap<>();
 
-        Integer draw = Integer.parseInt(data.get("draw")) + 1;
+        Integer draw = Integer.parseInt(data.get("draw"));
 
         ArrayList<Object> youObjectsSelected = new ArrayList<>(); // put your selected objects here
         int start = Integer.parseInt(data.get("start"));
