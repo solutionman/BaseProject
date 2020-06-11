@@ -40,14 +40,14 @@ public class BaseProjectRestController {
 //    }
 
     @RequestMapping(path = "testRecords", method = RequestMethod.GET)
-    public Map<String, Object> testRecords(@RequestParam Map<String, String> requestParams){
+    public Map<String, Object> testRecords(@RequestParam Map<String, Object> requestParams){
 
         Map<String, Object> result = new HashMap<>();
         List<TestRecords> testRecords = testRecordsService.findAll();
         result.put( "recordsTotal", testRecords.size() );
-        String length = requestParams.get("length");
-        String start = requestParams.get("start");
-        String search = requestParams.get("search[value]");
+        String length = requestParams.get("length").toString();
+        String start = requestParams.get("start").toString();
+        String search = requestParams.get("search[value]").toString();
         if(search==null || search.equals("")){
             result.put("recordsFiltered", testRecords.size());
             testRecords.subList(0, Integer.parseInt(start)).clear();
@@ -69,7 +69,7 @@ public class BaseProjectRestController {
             }
             result.put("data", searchResult);
         }
-        int draw = Integer.parseInt(requestParams.get("draw"));
+        int draw = Integer.parseInt(requestParams.get("draw").toString());
         result.put( "draw", draw );
         return result;
     }
