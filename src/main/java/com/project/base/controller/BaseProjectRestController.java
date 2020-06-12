@@ -42,12 +42,14 @@ public class BaseProjectRestController {
     @RequestMapping(path = "testRecords", method = RequestMethod.GET)
     public Map<String, Object> testRecords(@RequestParam Map<String, Object> requestParams){
 
-        Map<String, Object> result = new HashMap<>();
-        List<TestRecords> testRecords = testRecordsService.findAll();
-        result.put( "recordsTotal", testRecords.size() );
         String length = requestParams.get("length").toString();
         String start = requestParams.get("start").toString();
         String search = requestParams.get("search[value]").toString();
+        String orderColumn = requestParams.get("order[0][column]").toString();
+        String orderDir = requestParams.get("order[0][dir]").toString();
+        List<TestRecords> testRecords = testRecordsService.findAll();
+        Map<String, Object> result = new HashMap<>();
+        result.put( "recordsTotal", testRecords.size() );
         if(search==null || search.equals("")){
             result.put("recordsFiltered", testRecords.size());
             testRecords.subList(0, Integer.parseInt(start)).clear();
