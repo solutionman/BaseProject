@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 public class BaseProjectRestController {
@@ -48,6 +49,7 @@ public class BaseProjectRestController {
         String orderColumn = requestParams.get("order[0][column]").toString();
         String orderDir = requestParams.get("order[0][dir]").toString();
         List<TestRecords> testRecords = testRecordsService.findAll();
+        testRecords = sortByFieldName( testRecords, orderColumn, orderDir );
         Map<String, Object> result = new HashMap<>();
         result.put( "recordsTotal", testRecords.size() );
         if(search==null || search.equals("")){
@@ -74,6 +76,40 @@ public class BaseProjectRestController {
         int draw = Integer.parseInt(requestParams.get("draw").toString());
         result.put( "draw", draw );
         return result;
+    }
+
+    private List<TestRecords> sortByFieldName(List<TestRecords> list, String fieldName, String direction) {
+
+        return list.stream()
+                .sorted((first, second) -> {
+                    try {
+                        String a;
+                        String b;
+                        if( fieldName.equals("0") ){
+                            a = first.getUsername();
+                            b = second.getUsername();
+                        } else if( fieldName.equals("1")  ){
+                            a = first.getFirstname();
+                            b = second.getFirstname();
+                        } else {
+                            a = first.getLastname();
+                            b = second.getLastname();
+                        }
+
+                        if(direction.equals("asc") ){
+                            assert a != null;
+                            assert b != null;
+                            return a.compareTo(b);
+                        } else {
+                            assert b != null;
+                            assert a != null;
+                            return b.compareTo(a);
+                        }
+                    } catch ( Exception e ) {
+                        throw new RuntimeException("Error", e);
+                    }
+                })
+                .collect(Collectors.toList());
     }
 
     @RequestMapping(path = "/getcompany", method = RequestMethod.GET)
