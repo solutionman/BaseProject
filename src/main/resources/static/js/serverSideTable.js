@@ -1,6 +1,6 @@
 $(document).ready( function () {
     var table = $('#testRecords').DataTable({
-        ajax: '/base/testRecords',
+        ajax: 'testRecords',
         sAjaxDataProp: 'data',
         processing: true,
         serverSide: true,
